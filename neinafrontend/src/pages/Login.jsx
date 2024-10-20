@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Import axios
+import axios from 'axios';
 
 export default function Login() {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -16,9 +16,9 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:7000/api/auth/v1/login', credentials);
-      const userData = response.data; // Assuming the API returns user data with username
-      login(userData); // Store user data in AuthContext
+      const response = await axios.post('https://neina-task-j61y.vercel.app/api/auth/v1/login', credentials);
+      const userData = response.data;
+      login(userData); 
       navigate('/home');
     } catch (error) {
       console.error('Login failed:', error);
