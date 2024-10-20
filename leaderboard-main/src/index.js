@@ -1,5 +1,5 @@
 import express from "express";
-import { connectDb } from "./config/dbConnection.js";
+import { connectDb } from "./config/dbConenction.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import auth from "./routes/auth.routes.js";
