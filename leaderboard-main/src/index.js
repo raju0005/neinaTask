@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // *********** All-Routes *************
-app.get("/", (req, res) => {
+app.get("/api/auth", (req, res) => {
     res.json("I'm coming from backend");
 });
 app.use("/api/auth/v1", auth);
