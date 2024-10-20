@@ -8,11 +8,7 @@ import user from "./routes/user.routes.js";
 const app = express();
 
 // Use CORS middleware to allow requests from specified origins
-app.use(cors({
-  origin: '*', // Allow all origins (not recommended for production)
-  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-  credentials: true,
-}));
+app.use(cors());
 
 // Middlewares
 app.use(express.json());
