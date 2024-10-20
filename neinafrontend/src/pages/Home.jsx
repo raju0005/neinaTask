@@ -31,7 +31,7 @@ const Home = () => {
 
     const claimPoints = async (username) => {
         try {
-            const response = await axios.patch('http://localhost:7000/api/user/v1/claim-points', { username });
+            const response = await axios.patch('https://neina-task-j61y.vercel.app/api/user/v1/claim-points', { username });
             toast.success(`${response.data.message} for ${username}`);
 
 

@@ -14,7 +14,7 @@ const Leaderboard = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get("http://localhost:7000/api/user/v1/get-users")
+            .get("https://neina-task-j61y.vercel.app/api/user/v1/get-users")
             .then((res) => setUsers(res.data.data || []))
             .catch((err) => toast.error("Error fetching users: " + err.message))
             .finally(() => setLoading(false));
@@ -36,7 +36,7 @@ const Leaderboard = () => {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:7000/api/user/v1/${endpoint}`
+                `https://neina-task-j61y.vercel.app/api/user/v1/${endpoint}`
             );
             setHistory({
                 data: response.data.data,
@@ -54,7 +54,7 @@ const Leaderboard = () => {
         setLoading(true);
         try {
             const response = await axios.post(
-                "http://localhost:7000/api/user/v1/your-history",
+                "https://neina-task-j61y.vercel.app/api/user/v1/your-history",
                 { username }
             );
             setHistory({
