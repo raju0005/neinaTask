@@ -43,8 +43,9 @@ app.use((err, req, res, next) => {
         error: err.message,
     });
 });
+await connectDb();
 
 app.listen(7000, async () => {
     console.log("Server is running on port 7000");
-    await connectDb();
+    
 });
