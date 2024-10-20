@@ -15,7 +15,7 @@ const Home = () => {
         console.log(user);
 
         axios
-            .get('http://localhost:7000/api/user/v1/get-users')
+            .get('https://neina-task-j61y.vercel.app/api/user/v1/get-users')
             .then((res) => {
 
                 if (Array.isArray(res.data)) {
