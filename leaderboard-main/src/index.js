@@ -10,11 +10,11 @@ import user from "./routes/user.routes.js";
 
 const app = express();
 
-// Use cors middleware
+// Use CORS middleware to allow requests from all origins
 app.use(cors({
-    origin: "https://neina-task.vercel.app", // Replace with your frontend's URL
-    methods: "GET,POST,PUT,DELETE,PATCH", // Allowed methods
-    credentials: true // Allow cookies to be sent with requests
+    origin: '*', // Allow all origins
+    methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS", // Allowed methods
+    credentials: true, // Allow credentials (if needed)
 }));
 
 // Middlewares
@@ -47,7 +47,6 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start the server
 app.listen(7000, async () => {
     console.log("Server is running on port 7000");
     await connectDb();
