@@ -16,7 +16,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:7000/api/auth/v1/login', credentials);
+      const response = await axios.post('https://neina-task-j61y.vercel.app/api/auth/v1/login', credentials);
       const userData = response.data;
       login(userData); 
       navigate('/home');
@@ -28,7 +28,7 @@ export default function Login() {
 
   useEffect(()=>{
     const fetch = async () => {
-    const res = await axios.get('http://localhost:7000/api/auth')
+    const res = await axios.get('https://neina-task-j61y.vercel.app/api/auth')
     console.log(res)}
     fetch()
   })

@@ -16,7 +16,7 @@ const Home = () => {
         const fetchUsers = async () => {
             setLoading(true);
             try {
-                const res = await axios.get('http://localhost:7000/api/user/v1/get-users');
+                const res = await axios.get('https://neina-task-j61y.vercel.app/api/user/v1/get-users');
                 if (Array.isArray(res.data)) {
                     setUsers(res.data);
                 } else if (Array.isArray(res.data?.data)) {
@@ -37,7 +37,7 @@ const Home = () => {
 
     const claimPoints = async (username) => {
         try {
-            const response = await axios.patch('http://localhost:7000/api/user/v1/claim-points', { username });
+            const response = await axios.patch('https://neina-task-j61y.vercel.app/api/user/v1/claim-points', { username });
             const { message, data } = response.data;
             toast.success(`${message} for ${username}`);
 
@@ -56,7 +56,7 @@ const Home = () => {
     const totalPoints = users.reduce((total, user) => total + (user.Points || 0), 0);
 
     if (loading) {
-        return <div>Loading...</div>; // Loading indicator
+        return <div>Loading...</div>;
     }
 
     return (

@@ -14,7 +14,7 @@ export default function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`http://localhost:7000/api/auth/v1/register`, formData);
+            const res = await axios.post(`https://neina-task-j61y.vercel.app/api/auth/v1/register`, formData);
             toast.success(res.data.message);
         } catch (err) {
             console.error(err);
