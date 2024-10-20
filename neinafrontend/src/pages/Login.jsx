@@ -27,8 +27,10 @@ export default function Login() {
   };
 
   useEffect(()=>{
-    const res = axios.get('https://neina-task-j61y.vercel.app/api/auth')
-    console.log(res)
+    const fetch = async () => {
+    const res = await axios.get('https://neina-task-j61y.vercel.app/api/auth')
+    console.log(res)}
+    fetch()
   })
 
   return (

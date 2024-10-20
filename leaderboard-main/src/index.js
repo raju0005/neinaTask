@@ -11,7 +11,11 @@ import user from "./routes/user.routes.js";
 const app = express();
 
 // Use CORS middleware to allow requests from all origins
-app.use(cors());
+app.use(cors({
+  origin: 'https://neina-task.vercel.app', // Allow this origin
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Allow specific HTTP methods
+  credentials: false, // Allow credentials if needed
+}));
 
 // Middlewares
 app.use(express.json());
