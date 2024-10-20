@@ -9,7 +9,7 @@ const app = express();
 
 // Use CORS middleware to allow requests from specified origins
 const corsOptions = {
-  origin: 'https://neina-task.vercel.app/', // Replace with your frontend URL
+  origin: 'https://neina-task.vercel.app', // Replace with your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 };
