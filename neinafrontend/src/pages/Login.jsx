@@ -16,11 +16,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://neina-task-j61y.vercel.app/api/auth/v1/login', credentials,{
-        headers: {
-          'Content-Type': 'application/json',
-      },
-      });
+      const response = await axios.post('https://neina-task-j61y.vercel.app/api/auth/v1/login', credentials);
       const userData = response.data;
       login(userData); 
       navigate('/home');
