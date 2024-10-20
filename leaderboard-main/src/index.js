@@ -1,20 +1,17 @@
 import express from "express";
-import { connectDb } from "./config/dbConenction.js";
+import { connectDb } from "./config/dbConnection.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
-// *********** All-Routes *************
 import auth from "./routes/auth.routes.js";
 import user from "./routes/user.routes.js";
-// *********** All-Routes *************
 
 const app = express();
 
-// Use CORS middleware to allow requests from all origins
+// Use CORS middleware to allow requests from specified origins
 app.use(cors({
   origin: 'https://neina-task.vercel.app', // Allow this origin
   methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Allow specific HTTP methods
-  credentials: false, // Allow credentials if needed
+  credentials: true, // Set to true if you need to send cookies or authorization headers
 }));
 
 // Middlewares
@@ -22,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// *********** All-Routes *************
+// Define your routes after the middleware
 app.get("/api/auth", (req, res) => {
     res.json("I'm coming from backend");
 });
@@ -37,7 +34,7 @@ app.use((req, res) => {
     });
 });
 
-// Error handling middleware (optional, for other server errors)
+// Error handling middleware (optional)
 app.use((err, req, res, next) => {
     console.error(err);
     res.status(500).json({
