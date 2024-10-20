@@ -8,7 +8,13 @@ import user from "./routes/user.routes.js";
 const app = express();
 
 // Use CORS middleware to allow requests from specified origins
-app.use(cors());
+const corsOptions = {
+  origin: 'https://neina-task.vercel.app/', // Replace with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+};
+
+app.use(cors(corsOptions));
 
 // Middlewares
 app.use(express.json());
@@ -39,9 +45,9 @@ app.use((err, req, res, next) => {
     error: err.message,
   });
 });
+
 connectDb();
 
 app.listen(7000, async () => {
   console.log("Server is running on port 7000");
-
 });
