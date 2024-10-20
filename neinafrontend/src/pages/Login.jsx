@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -25,6 +25,11 @@ export default function Login() {
       alert('Invalid credentials. Please try again.');
     }
   };
+
+  useEffect(()=>{
+    const res = axios.get('https://neina-task-j61y.vercel.app/api/auth')
+    console.log(res)
+  })
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 space-y-4">
