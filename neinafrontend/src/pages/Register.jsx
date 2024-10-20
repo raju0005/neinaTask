@@ -16,7 +16,7 @@ export default function Register() {
     
         e.preventDefault();
         try {
-            const res = await axios.post(`https://neina-task-j61y.vercel.app/api/auth/v1/register`, formData);
+            const res = await axios.post(`https://neina-task-server.vercel.app/api/auth/v1/register`, formData);
             toast.success(res.data.message);
         } catch (err) {
             console.error(err);
